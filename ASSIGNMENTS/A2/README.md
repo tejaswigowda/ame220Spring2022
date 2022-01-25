@@ -4,7 +4,7 @@
 
 ## Tasks
 
-Write a simple single page resume (in html/css). It should have at-least 4-5 sections
+Write a simple single page resume (in html). It should have at-least 4-5 sections
 
 1. Name + thumbnail (phone, address and email are links) 
 2. Objective 
