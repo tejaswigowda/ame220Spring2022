@@ -1,0 +1,52 @@
+<!doctuype html>
+<html>
+<head>
+  <title> My Resume </title>
+  <style>
+    th, td {
+      border: 1px solid black;
+      border-radius: 10px;
+    }
+    img{
+      display: none;
+      position: absolute;
+    }
+  </style>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <script>
+    var currentSlide = 1;
+    function goPrev()
+    {
+      currentSlide = currentSlide - 1;
+      if(currentSlide == 0){
+        currentSlide = 5
+      }
+      $("img").fadeOut();
+      $("img:nth-of-type(" + currentSlide + ")").stop().fadeIn();
+    }
+
+    function goNext()
+    {
+      currentSlide = currentSlide + 1
+      if(currentSlide == 6){
+        currentSlide = 1
+      }
+      $("img").fadeOut();
+      $("img:nth-of-type(" + currentSlide + ")").stop().fadeIn();
+    }
+  </script>
+
+</head>
+
+<body onload='$("img:nth-of-type(1)").fadeIn()'>
+<button onclick='goPrev()'> Prev </button>
+<button onclick='goNext()'> Next </button>
+<br>
+<img src='https://upload.wikimedia.org/wikipedia/commons/thumb/b/b0/Salmonete_de_fango_%28Mullus_barbatus%29%2C_Parque_natural_de_la_Arr%C3%A1bida%2C_Portugal%2C_2020-07-21%2C_DD_59.jpg/633px-Salmonete_de_fango_%28Mullus_barbatus%29%2C_Parque_natural_de_la_Arr%C3%A1bida%2C_Portugal%2C_2020-07-21%2C_DD_59.jpg'>
+<img src='https://upload.wikimedia.org/wikipedia/commons/thumb/8/83/Pez_ballesta_%28Balistes_capriscus%29%2C_Parque_natural_de_la_Arr%C3%A1bida%2C_Portugal%2C_2020-07-23%2C_DD_24.jpg/450px-Pez_ballesta_%28Balistes_capriscus%29%2C_Parque_natural_de_la_Arr%C3%A1bida%2C_Portugal%2C_2020-07-23%2C_DD_24.jpg'>
+<img src='https://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/Balantiocheilos_melanopterus_-_Karlsruhe_Zoo_02.jpg/525px-Balantiocheilos_melanopterus_-_Karlsruhe_Zoo_02.jpg'>
+<img src='https://upload.wikimedia.org/wikipedia/commons/thumb/d/d3/Red_Fish_at_Papah%C4%81naumoku%C4%81kea_%28cropped%29.jpg/352px-Red_Fish_at_Papah%C4%81naumoku%C4%81kea_%28cropped%29.jpg'>
+<img src='https://upload.wikimedia.org/wikipedia/commons/thumb/7/78/Andinoacara_rivulatus_-_Karlsruhe_Zoo_01_edit1.jpg/535px-Andinoacara_rivulatus_-_Karlsruhe_Zoo_01_edit1.jpg'>
+
+</body>
+</html>
