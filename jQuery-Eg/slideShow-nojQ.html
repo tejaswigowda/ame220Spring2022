@@ -34,7 +34,7 @@
     function goToCurrentSlide(){
       var allImgObj = document.getElementsByTagName("img");
       for(var i = 0; i < allImgObj.length; i++){
-        if( i === currentSlide ){
+        if( (i+1) === currentSlide ){
           allImgObj[i].style.display = "block";
         }
         else{
