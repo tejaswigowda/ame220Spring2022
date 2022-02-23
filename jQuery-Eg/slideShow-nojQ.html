@@ -3,13 +3,17 @@
 <head>
   <title> My Resume </title>
   <style>
+    body{
+      margin: 0;
+    }
     th, td {
       border: 1px solid black;
       border-radius: 10px;
     }
-    img{
+    div{
       display: none;
       position: absolute;
+      width: 100vw;
     }
   </style>
   <script>
@@ -32,7 +36,7 @@
       goToCurrentSlide();
     }
     function goToCurrentSlide(){
-      var allImgObj = document.getElementsByTagName("img");
+      var allImgObj = document.getElementsByTagName("div");
       for(var i = 0; i < allImgObj.length; i++){
         if( (i+1) === currentSlide ){
           allImgObj[i].style.display = "block";
@@ -48,15 +52,15 @@
 
 </head>
 
-<body onload='document.getElementsByTagName("img")[0].style.display = "block"'>
-<button onclick='goPrev()'> Prev </button>
-<button onclick='goNext()'> Next </button>
+<body onload='document.getElementsByTagName("div")[0].style.display = "block"'>
+<button onclick='goPrev()' style='position:fixed;bottom:0;left:0'> Prev </button>
+<button onclick='goNext()' style='position:fixed;bottom:0;right:0'> Next </button>
 <br>
-<img src='https://upload.wikimedia.org/wikipedia/commons/thumb/b/b0/Salmonete_de_fango_%28Mullus_barbatus%29%2C_Parque_natural_de_la_Arr%C3%A1bida%2C_Portugal%2C_2020-07-21%2C_DD_59.jpg/633px-Salmonete_de_fango_%28Mullus_barbatus%29%2C_Parque_natural_de_la_Arr%C3%A1bida%2C_Portugal%2C_2020-07-21%2C_DD_59.jpg'>
-<img src='https://upload.wikimedia.org/wikipedia/commons/thumb/8/83/Pez_ballesta_%28Balistes_capriscus%29%2C_Parque_natural_de_la_Arr%C3%A1bida%2C_Portugal%2C_2020-07-23%2C_DD_24.jpg/450px-Pez_ballesta_%28Balistes_capriscus%29%2C_Parque_natural_de_la_Arr%C3%A1bida%2C_Portugal%2C_2020-07-23%2C_DD_24.jpg'>
-<img src='https://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/Balantiocheilos_melanopterus_-_Karlsruhe_Zoo_02.jpg/525px-Balantiocheilos_melanopterus_-_Karlsruhe_Zoo_02.jpg'>
-<img src='https://upload.wikimedia.org/wikipedia/commons/thumb/d/d3/Red_Fish_at_Papah%C4%81naumoku%C4%81kea_%28cropped%29.jpg/352px-Red_Fish_at_Papah%C4%81naumoku%C4%81kea_%28cropped%29.jpg'>
-<img src='https://upload.wikimedia.org/wikipedia/commons/thumb/7/78/Andinoacara_rivulatus_-_Karlsruhe_Zoo_01_edit1.jpg/535px-Andinoacara_rivulatus_-_Karlsruhe_Zoo_01_edit1.jpg'>
+<div style='background-image:url(https://upload.wikimedia.org/wikipedia/commons/thumb/b/b0/Salmonete_de_fango_%28Mullus_barbatus%29%2C_Parque_natural_de_la_Arr%C3%A1bida%2C_Portugal%2C_2020-07-21%2C_DD_59.jpg/633px-Salmonete_de_fango_%28Mullus_barbatus%29%2C_Parque_natural_de_la_Arr%C3%A1bida%2C_Portugal%2C_2020-07-21%2C_DD_59.jpg)'></div>
+<div style='background-image:url(https://upload.wikimedia.org/wikipedia/commons/thumb/8/83/Pez_ballesta_%28Balistes_capriscus%29%2C_Parque_natural_de_la_Arr%C3%A1bida%2C_Portugal%2C_2020-07-23%2C_DD_24.jpg/450px-Pez_ballesta_%28Balistes_capriscus%29%2C_Parque_natural_de_la_Arr%C3%A1bida%2C_Portugal%2C_2020-07-23%2C_DD_24.jpg)'></div>
+<div style='background-image:url(https://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/Balantiocheilos_melanopterus_-_Karlsruhe_Zoo_02.jpg/525px-Balantiocheilos_melanopterus_-_Karlsruhe_Zoo_02.jpg)'>
+<div style='background-image:url(https://upload.wikimedia.org/wikipedia/commons/thumb/d/d3/Red_Fish_at_Papah%C4%81naumoku%C4%81kea_%28cropped%29.jpg/352px-Red_Fish_at_Papah%C4%81naumoku%C4%81kea_%28cropped%29.jpg)'></div>
+<div style='backgroud-image:url(https://upload.wikimedia.org/wikipedia/commons/thumb/7/78/Andinoacara_rivulatus_-_Karlsruhe_Zoo_01_edit1.jpg/535px-Andinoacara_rivulatus_-_Karlsruhe_Zoo_01_edit1.jpg)'></div>
 
 </body>
 </html>
