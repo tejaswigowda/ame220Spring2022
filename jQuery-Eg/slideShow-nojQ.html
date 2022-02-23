@@ -48,7 +48,7 @@
 
 </head>
 
-<body onload='$("img:nth-of-type(1)").fadeIn()'>
+<body onload='document.getElementsByTagName("img")[0].style.display = "block"'>
 <button onclick='goPrev()'> Prev </button>
 <button onclick='goNext()'> Next </button>
 <br>
