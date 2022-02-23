@@ -32,8 +32,17 @@
       goToCurrentSlide();
     }
     function goToCurrentSlide(){
-      $("img").fadeOut();
-      $("img:nth-of-type(" + currentSlide + ")").stop().fadeIn();
+      var allImgObj = document.getElementsByTagName("img");
+      for(var i = 0; i < allImgObj.length; i++){
+        if( i === currentSlide ){
+          allImgObj[i].style.display = "block";
+        }
+        else{
+          allImgObj[i].style.display = "none";
+        }
+      }
+ //     $("img").fadeOut();
+ //     $("img:nth-of-type(" + currentSlide + ")").stop().fadeIn();
     }
   </script>
 
