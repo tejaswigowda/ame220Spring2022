@@ -27,7 +27,7 @@
     {
       currentSlide = currentSlide - 1;
       if(currentSlide == 0){
-        currentSlide = 5
+        currentSlide = allImageURLs.length
       }
       goToCurrentSlide();
     }
@@ -35,13 +35,13 @@
     function goNext()
     {
       currentSlide = currentSlide + 1
-      if(currentSlide == 6){
+      if(currentSlide > allImageURLs.length){
         currentSlide = 1
       }
       goToCurrentSlide();
     }
     function goToCurrentSlide(){
-      var allImgObj = document.getElementsByTagName("div");
+      var allImgObj = document.getElementsByClassName("slide");
       for(var i = 0; i < allImgObj.length; i++){
         if( (i+1) === currentSlide ){
           allImgObj[i].style.display = "block";
