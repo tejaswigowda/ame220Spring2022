@@ -1,0 +1,81 @@
+<!doctuype html>
+<html>
+<head>
+  <title> Slide Show Library</title>
+  <style>
+    body{
+      margin: 0;
+      background: #323232;
+    }
+    th, td {
+      border: 1px solid black;
+      border-radius: 10px;
+    }
+    .slide{
+      display: none;
+      position: absolute;
+      width: 100vw;
+      height: 95vh;
+      background-repeat: no-repeat;
+      background-position: 50% 50%;
+      background-size: contain;
+    }
+  </style>
+  <script>
+    var currentSlide = 1;
+    function goPrev()
+    {
+      currentSlide = currentSlide - 1;
+      if(currentSlide == 0){
+        currentSlide = 5
+      }
+      goToCurrentSlide();
+    }
+
+    function goNext()
+    {
+      currentSlide = currentSlide + 1
+      if(currentSlide == 6){
+        currentSlide = 1
+      }
+      goToCurrentSlide();
+    }
+    function goToCurrentSlide(){
+      var allImgObj = document.getElementsByTagName("div");
+      for(var i = 0; i < allImgObj.length; i++){
+        if( (i+1) === currentSlide ){
+          allImgObj[i].style.display = "block";
+        }
+        else{
+          allImgObj[i].style.display = "none";
+        }
+      }
+ //     $("img").fadeOut();
+ //     $("img:nth-of-type(" + currentSlide + ")").stop().fadeIn();
+    }
+
+    var allImageURLs = [];
+    function start()
+    {
+	var hash = location.hash.replace("#","")
+	allImageURLs = hash.split(",");
+	var markup = "";
+	for(var i = 0; i < allImageURLs.length; i++){
+	   markup += "<div class='slide' style='background-image:url("+allImageURLs[i]+")'></div>"
+	}
+        document.getElementById("container").innerHTML = markup;
+	document.getElementsByClassName("slide")[0].style.display = "block"
+
+    }
+  </script>
+
+</head>
+
+<body onload='start()'>
+<button onclick='goPrev()' style='position:fixed;bottom:0;left:0'> Prev </button>
+<button onclick='goNext()' style='position:fixed;bottom:0;right:0'> Next </button>
+<div id='container'>
+</div>
+
+</body>
+</html>
