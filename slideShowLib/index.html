@@ -1,0 +1,118 @@
+<!doctuype html>
+<html>
+<head>
+  <title> Slide Show Library</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+      <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+  <style>
+    .selected{
+    	background-color: #2ab7a9;
+    }
+    body{
+      margin: 0;
+      background: #323232;
+    }
+    th, td {
+      border: 1px solid black;
+      border-radius: 10px;
+    }
+    .slide{
+      display: none;
+      position: absolute;
+      width: 100vw;
+      height: 95vh;
+      background-repeat: no-repeat;
+      background-position: 50% 50%;
+      background-size: contain;
+    }
+    #numContainer{
+    	position:fixed;
+	width: 100vw;
+	text-align:center;
+	bottom: 5px;
+    }
+    #numContainer button{
+	margin-right: 10px;
+	border-radius: 50%;
+	text-align:center;
+	border: none;
+    }
+  </style>
+  <script>
+    var currentSlide = 1;
+    function goPrev()
+    {
+      currentSlide = currentSlide - 1;
+      if(currentSlide == 0){
+        currentSlide = allImageURLs.length
+      }
+      goToCurrentSlide();
+    }
+
+    function goNext()
+    {
+      currentSlide = currentSlide + 1
+      if(currentSlide > allImageURLs.length){
+        currentSlide = 1
+      }
+      goToCurrentSlide();
+    }
+
+    function goToSlide(n)
+    {
+       currentSlide = n + 1;
+       goToCurrentSlide();
+    }
+    function goToCurrentSlide(){
+      var allImgObj = document.getElementsByClassName("slide");
+      var allNumObj = document.getElementById("numContainer").getElementsByTagName("button");
+      for(var i = 0; i < allImgObj.length; i++){
+        if( (i+1) === currentSlide ){
+          allImgObj[i].style.display = "block";
+	  allNumObj[i].className = "selected";
+        }
+        else{
+          allImgObj[i].style.display = "none";
+	  allNumObj[i].className = "";
+        }
+      }
+ //     $("img").fadeOut();
+ //     $("img:nth-of-type(" + currentSlide + ")").stop().fadeIn();
+    }
+
+    var allImageURLs = [];
+    function start()
+    {
+	var hash = location.hash.replace("#","")
+	allImageURLs = hash.split(",");
+	var markup = "";
+	var markupn = "";
+	for(var i = 0; i < allImageURLs.length; i++){
+	   markup += "<div class='slide' style='background-image:url("+allImageURLs[i]+")'></div>"
+	  markupn += "<button class='button' onclick='goToSlide("+i+")'>"+ (i + 1) +"</button>"
+	}
+        document.getElementById("container").innerHTML = markup;
+        document.getElementById("numContainer").innerHTML = markupn;
+//	document.getElementsByClassName("slide")[0].style.display = "block"
+        currentSlide = 1;
+	goToCurrentSlide();
+
+    }
+  </script>
+
+</head>
+
+<body onload='start()'>
+  <a href='javascript:goPrev()' style='position:fixed;bottom:50%;left:5px' class="btn-floating btn-large waves-effect waves-light black"><i class="material-icons">arrow_back</i></a>
+  <a href='javascript:goNext()' style='position:fixed;bottom:50%;right:5px' class="btn-floating btn-large waves-effect waves-light black"><i class="material-icons">arrow_forward</i></a>
+
+<div id='container'>
+</div>
+
+<div id='numContainer'>
+</div>
+
+</body>
+</html>
