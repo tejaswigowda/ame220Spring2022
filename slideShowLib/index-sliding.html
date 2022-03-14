@@ -19,9 +19,7 @@
       border-radius: 10px;
     }
     .slide{
-      opacity: 0;
-      transition-duration: 2s;
-      position: absolute;
+      display: inline-block;
       width: 100vw;
       height: 95vh;
       background-repeat: no-repeat;
@@ -71,16 +69,13 @@
       var allNumObj = document.getElementById("numContainer").getElementsByTagName("button");
       for(var i = 0; i < allImgObj.length; i++){
         if( (i+1) === currentSlide ){
-          allImgObj[i].style.opacity = "1";
 	  allNumObj[i].className = "selected";
         }
         else{
-          allImgObj[i].style.opacity = "0";
 	  allNumObj[i].className = "";
         }
       }
- //     $("img").fadeOut();
- //     $("img:nth-of-type(" + currentSlide + ")").stop().fadeIn();
+      document.getElementById("container").style.marginLeft = (1-currentSlide)*100 + "vw";
     }
 
     var allImageURLs = [];
@@ -94,6 +89,7 @@
 	   markup += "<div class='slide' style='background-image:url("+allImageURLs[i]+")'></div>"
 	  markupn += "<button class='button' onclick='goToSlide("+i+")'>"+ (i + 1) +"</button>"
 	}
+        document.getElementById("container").style.width = allImageURLs.length * 100 + "vw";
         document.getElementById("container").innerHTML = markup;
         document.getElementById("numContainer").innerHTML = markupn;
 //	document.getElementsByClassName("slide")[0].style.display = "block"
