@@ -65,9 +65,31 @@ body{
 #num11{
   transform: rotate(330deg);
 }
+
+.hand{
+  height: 2px;
+  position: absolute;
+  transform: translate(150px, 150px);
+}
+
+#hour{
+  width: 100px;
+  background: black;
+}
+
+#min{
+  width: 120px;
+  background: red;
+}
+
+#sec{
+  width: 140px;
+  background: blue;
+}
+
 </style>
 </head>
-<body>
+<body onload='refreshClock();setInterval("refreshClock()", 1000)'>
 <div id='frame'>
   <div class='tick' id='num1'> | </div>
   <div class='tick' id='num2'> | </div>
@@ -81,6 +103,10 @@ body{
   <div class='tick' id='num10'> | </div>
   <div class='tick' id='num11'> | </div>
   <div class='tick' id='num12'> | </div>
+
+  <div class='hand' id='hour'> </div>
+  <div class='hand' id='min'> </div>
+  <div class='hand' id='sec'> </div>
 </div>
 </body>
 </html>
