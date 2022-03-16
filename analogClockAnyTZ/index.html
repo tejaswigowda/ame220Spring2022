@@ -99,7 +99,7 @@ function refreshClock()
   }
   var tzOffset = parseFloat(hash) *60 *60 *1000;
   var utcOffset = now.getTimezoneOffset() * 60 *1000;
-  var correctedMSSE = now.getTime() - utcOffset + tzOffset;
+  var correctedMSSE = now.getTime() + utcOffset + tzOffset;
 
   adjustedNow = new Date(correctedMSSE);
 
