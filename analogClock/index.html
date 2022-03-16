@@ -70,6 +70,7 @@ body{
   height: 2px;
   position: absolute;
   transform: translate(150px, 150px);
+  transform-origin: 0 0;
 }
 
 #hour{
@@ -86,8 +87,26 @@ body{
   width: 140px;
   background: blue;
 }
-
 </style>
+
+<script>
+function refreshClock()
+{
+  var now = new Date();
+  var h = now.getHours();
+  var m = now.getMinutes();
+  var s = now.getSeconds();
+  console.log(h, m, s);
+  var sAng = (6 * s) - 90;
+  document.getElementById("sec").style.transform = "translate(150px, 150px) rotate(" + sAng + "deg)";
+  var mAng = (6 * m) - 90;
+  document.getElementById("min").style.transform = "translate(150px, 150px) rotate(" + mAng + "deg)";
+  var hAng = (30 * h) - 90;
+  document.getElementById("hour").style.transform = "translate(150px, 150px) rotate(" + hAng + "deg)";
+}
+
+</script>
+
 </head>
 <body onload='refreshClock();setInterval("refreshClock()", 1000)'>
 <div id='frame'>
