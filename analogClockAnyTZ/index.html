@@ -6,6 +6,9 @@ body{
  margin: 0;
 }
 
+.night{
+  filter: invert(100%);
+}
 #frame{
   width: 300px;
   height: 300px;
@@ -15,6 +18,7 @@ body{
   position: absolute;
   left: 50%;
   top: 50%;
+  background:white;
 }
 .tick{
   position:absolute;
@@ -104,6 +108,12 @@ function refreshClock()
   adjustedNow = new Date(correctedMSSE);
 
   var h = adjustedNow.getHours();
+  if(h>=6 && h < 18){
+    document.getElementById("frame").className = "";
+  }
+  else{
+    document.getElementById("frame").className = "night";
+  }
   var m = adjustedNow.getMinutes();
   var s = adjustedNow.getSeconds();
   var sAng = (6 * s) - 90;
