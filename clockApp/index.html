@@ -9,7 +9,7 @@
   <div id='tzContainer'>
     <div id='tzList'>
     </div>
-      <a data-target="modal1" class="waves-effect waves-light btn modal-trigger" href="#modal1">Modal</a>
+      <a style='position:fixed;bottom:0;display:block;width:200px' data-target="modal1" class="waves-effect waves-light btn modal-trigger" href="#modal1">Manage Timezones</a>
   </div>
   <div id='selectedClock'>
   </div>
@@ -33,4 +33,21 @@
     $('.modal').modal();
 </script>
 
+<style>
+#tzContainer{
+  width: 200px;
+  height: 100vh;
+  overflow:auto;
+  background: lightblue;
+}
+#selectedClock{
+  width: calc(100vw - 200px);
+  height: 100vh;
+  overflow:auto;
+  background: lightgray;
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+</style>
 </html>
