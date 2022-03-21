@@ -1,0 +1,36 @@
+<!doctype hhtml>
+<html>
+<head>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+</head>
+<body>
+  <div id='tzContainer'>
+    <div id='tzList'>
+    </div>
+      <a data-target="modal1" class="waves-effect waves-light btn modal-trigger" href="#modal1">Modal</a>
+  </div>
+  <div id='selectedClock'>
+  </div>
+
+
+   <!-- Modal Structure -->
+  <div id="modal1" class="modal">
+    <div class="modal-content">
+      <h4>Modal Header</h4>
+      <p>A bunch of text</p>
+    </div>
+    <div class="modal-footer">
+      <a href="#!" class="modal-close waves-effect waves-green btn-flat">Agree</a>
+    </div>
+  </div>
+
+
+</body>
+
+<script>
+    $('.modal').modal();
+</script>
+
+</html>
