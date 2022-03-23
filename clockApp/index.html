@@ -166,7 +166,7 @@
       var markup = "";
       for(var i = 0; i < allTZList.length; i++){
         markup += 
-          "<button>" +
+          "<button onclick='showClock("+ i +")'>" +
              "<iframe src='clock.html#" + parseFloat(allTZList[i]) + "'></iframe>" +
              "<p>" + $("#timezone option[value='"+ allTZList[i] +"']").html() + "<p>" +
           "</button>"
