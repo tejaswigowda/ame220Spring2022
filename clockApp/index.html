@@ -178,7 +178,7 @@
     function showClock(index)
     {
       $("#tzList button").removeClass("selected")
-      $("#tzList button:nth-of-type("+(index+1)+")").removeClass("selected")
+      $("#tzList button:nth-of-type("+(index+1)+")").addClass("selected")
       var offset = parseFloat(allTZList[index]);
       var name = $("#timezone option[value='"+ allTZList[index] +"']").html() 
       var markup = "<h1>" + name + "</h1>" +
