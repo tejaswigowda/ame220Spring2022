@@ -158,6 +158,18 @@
     function createTZList()
     {
       allTZList = $('#timezone').val();
+      generateClockList();
+    }
+
+    function generateClockList()
+    {
+      var markup = "";
+      for(var i = 0; i < allTZList.length; i++){
+        markup += 
+          "<button>" +
+             "<iframe src='clock.html#" + parseFloat(allTZList[i]) + "'></iframe>" +
+          "</button>"
+      }
     }
 </script>
 
