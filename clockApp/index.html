@@ -9,7 +9,7 @@
   <div id='tzContainer'>
     <div id='tzList'>
     </div>
-      <a style='position:fixed;bottom:0;display:block;width:200px' data-target="modal1" class="waves-effect waves-light btn modal-trigger" onclick="openDD()">Manage Timezones</a>
+      <a style='position:fixed;bottom:0;display:block;width:300px' data-target="modal1" class="waves-effect waves-light btn modal-trigger" onclick="openDD()">Manage Timezones</a>
   </div>
   <div id='selectedClock'>
   </div>
@@ -168,6 +168,7 @@
         markup += 
           "<button>" +
              "<iframe src='clock.html#" + parseFloat(allTZList[i]) + "'></iframe>" +
+             "<p>" + $("#timezone option[value='"+ allTZList[i] +"']").html() + "<p>" +
           "</button>"
       }
       console.log(markup);
@@ -177,13 +178,13 @@
 
 <style>
 #tzContainer{
-  width: 200px;
+  width: 300px;
   height: 100vh;
   overflow:auto;
   background: lightblue;
 }
 #selectedClock{
-  width: calc(100vw - 200px);
+  width: calc(100vw - 300px);
   height: 100vh;
   overflow:auto;
   background: lightgray;
@@ -208,5 +209,26 @@
 .dropdown-content{
   box-shadow: none;
 }
+
+#tzList button{
+  max-height: 100px;
+  width: 100%;
+}
+
+#tzList button p{
+  float:right;
+  width: 200px;
+  margin-top: 270px;
+}
+
+#tzList button iframe{
+  border:0;
+  margin:0;
+  transform: scale(.3);
+  height: 310px;
+  width: 310px;
+  transform-origin: 0 0;
+}
+
 </style>
 </html>
