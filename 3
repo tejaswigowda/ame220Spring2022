@@ -7,7 +7,7 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
 </head>
 <body onload='start()'>
-      <a style='position:fixed;bottom:0;width:100%;' id='backButton' class="waves-effect waves-light btn modal-trigger blue" onclick="goBack()">Back</a>
+      <a style='position:fixed;bottom:0;display:block;width:100%' id='backButton' class="waves-effect waves-light btn modal-trigger blue" onclick="goBack()()">Back</a>
   <div id='tzContainer'>
     <div id='tzList'>
     </div>
@@ -154,13 +154,6 @@
       $('.modal').modal();
       $('select').formSelect();
     }
-
-    function goBack()
-    {
-      $("body").removeClass("details");
-      $("#tzList button").removeClass("selected")
-    }
-
     function openDD()
     {
       setTimeout(
@@ -278,10 +271,6 @@
   background:#2bbbad;
 }
 
-#backButton{
-  display: none;
-}
-
 @media (max-width: 500px) {
   #tzContainer{
     width: 100%;
@@ -297,9 +286,6 @@
     display: none;
   }
   body.details #selectedClock{
-    display: block;
-  }
-  body.details #backButton{
     display: block;
   }
 }
