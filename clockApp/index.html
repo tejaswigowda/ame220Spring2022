@@ -158,6 +158,7 @@
     function createTZList()
     {
       allTZList = $('#timezone').val();
+      localStorage.setItem("tzs", JSON.stringify(allTZList));
       generateClockList();
     }
 
