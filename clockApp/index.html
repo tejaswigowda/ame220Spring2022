@@ -143,9 +143,22 @@
 </body>
 
 <script>
+  var AI = {
+    show:function(){
+      $("body").append("<ddiv class='overlay'></div>")
+    },
+    hide: function(){
+      $(".overlay").remove();
+    }
+  }
+
     function start()
     {
       allTZList = JSON.parse(localStorage.getItem("tzs"))
+      if(allTZList === null)
+        {
+            allTZList = [];
+        }
       generateClockList();
       for(var i = 0; i < allTZList.length; i++){
         $("#timezone option[value="+ allTZList[i] +"]").attr("selected", true) 
@@ -163,6 +176,8 @@
 
     function openDD()
     {
+      AI.show();
+      setTimeout("AI.hide()",1200);
       setTimeout(
       function(){
         $(".select-wrapper > input").click()
@@ -250,7 +265,7 @@
 
 #tzList button p{
   float:right;
-  width: 200px;
+  width: calc(100% - 100px);
   margin-top: -280px;
 }
 
@@ -261,6 +276,8 @@
   height: 310px;
   width: 310px;
   transform-origin: 0 0;
+  margin-left: 10px;
+    float: left;
 }
 
 #selectedClock h1{
@@ -281,6 +298,18 @@
 #backButton{
   display: none;
 }
+
+
+.overlay{
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0,0,0,.3);
+  position: fixed;
+  left: 0;
+  top: 0;
+  z-index: 9999999999;
+}
+
 
 @media (max-width: 500px) {
   #tzContainer{
