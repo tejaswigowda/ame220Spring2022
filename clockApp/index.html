@@ -5,7 +5,7 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
 </head>
-<body>
+<body onload='start()'>
   <div id='tzContainer'>
     <div id='tzList'>
     </div>
@@ -141,9 +141,17 @@
 </body>
 
 <script>
-    $('.modal').modal();
-    $('select').formSelect();
+    function start()
+    {
+      allTZList = JSON.parse(localStorage.getItem("tzs"))
+      generateClockList();
+      for(var i = 0; i < allTZList.length; i++){
+        $("#timezone option[value="+ allTZList[i] +"]").attr("selected", true) 
+      }
 
+      $('.modal').modal();
+      $('select').formSelect();
+    }
     function openDD()
     {
       setTimeout(
@@ -172,7 +180,6 @@
              "<p>" + $("#timezone option[value='"+ allTZList[i] +"']").html() + "<p>" +
           "</button>"
       }
-      console.log(markup);
       document.getElementById("tzList").innerHTML = markup;
     }
 
