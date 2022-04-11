@@ -12,3 +12,5 @@ Whiteboard: https://docs.google.com/presentation/d/1TlhSwoBK6CYb6cI93u5nPIxEWyiC
 ___
 
 HTML Tutorial: https://www.w3schools.com/html/
+
+Capacitor HOWTO: https://gist.github.com/tejaswigowda/8449ed1365a255bca26eb6c519755db2
